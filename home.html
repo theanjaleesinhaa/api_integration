@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+  <!-- navbar code -->
+  <nav class="navbar navbar-expand-lg bg-success">
+    <div class="container-fluid">
+      <a class="navbar-brand text-white" href="#"><b>News Today</b></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Contact us</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Sign Up</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-light" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <!-- navbar code end  -->
+  <h1>Welcome to my news portal (<span id="resultCount">Results</span>)</h1>
+  <div class="row content">
+    
+    </div>
+  </div>
+  <div class="d-flex justify-content-around">
+    <button class=" btn btn-primary">Previous page</button>
+    <button class=" btn btn-primary">Next page</button>
+  </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const fetchNews = async (page) => {
+      console.log("fetching news....");
+      var url = 'https://newsapi.org/v2/everything?' +
+  'q=Apple&' +
+  'pageSize=50&' +
+  'page=' + page + '&' + 
+  'sortBy=popularity&' + 
+  'apiKey=91a86ad7fe60420bbf60d57c149c8ff8';
+
+
+      var req = new Request(url);
+
+      // let a = await fetch(req)
+      // let response = await a.json()
+      //  console.log(JSON.stringify(response))
+      let response = {
+        "status": "ok",
+        "totalResults": 54553,
+        "articles": [
+        {
+          "source": {
+            "id": "engadget",
+            "name": "Engadget"
+          },
+          "author": "Steve Dent",
+          "title": "Apple Cash will offer virtual card numbers for online shopping",
+          "description": "Apple Cash may soon offer a \"virtual card number\" in the iOS 17.4 beta that can be used to shop online where Apple Pay isn't available, according to a Reddit post spotted by 9to5Mac. The new feature promises a new security code for every transaction and the n…",
+          "url": "https://www.engadget.com/apple-cash-will-offer-virtual-card-numbers-for-online-shopping-123508385.html",
+          "urlToImage": "https://s.yimg.com/os/creatr-uploaded-images/2024-02/74be96c0-c99d-11ee-b3fc-e22f4b5cd4b2",
+          "publishedAt": "2024-02-12T12:35:08Z",
+          "content": "Apple Cash may soon offer a \"virtual card number\" in the iOS 17.4 beta that can be used to shop online where Apple Pay isn't available, according to a Reddit post spotted by 9to5Mac. The new feature … [+1200 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Yahoo Entertainment"
+            },
+            "author": "Amy Skorheim",
+            "title": "The best Apple Watch in 2024",
+            "description": "Apple Watches are useful sidekicks for iPhones, serving up calls and notifications while also handling practical tasks like music control and timers. Plus they’re aces at tracking health and fitness metrics. While there are just three Apple Watch models, suss…",
+            "url": "https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_5604566d-52c0-4525-8574-e0d2e8616c66",
+            "urlToImage": null,
+            "publishedAt": "2024-02-23T13:00:38Z",
+            "content": "Si vous cliquez sur « Tout accepter », nos partenaires (y compris 241 qui font partie du Cadre de transparence et de consentement dIAB) et nous utiliserons également des témoins et vos données person… [+982 chars]"
+        },{"source":{"id":null,"name":"Yahoo Entertainment"},"author":"Karissa Bell","title":"pple details how third-party app stores and payments will work in Europe","description":"Apple is making major change\r\ns to the App Store and other core parts of iOS in Europe in response to new European Union laws. Beginning in March, Apple will allow users within the EU to download apps and make purchases from outside of its App Store. The comp…","url":"https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_383625bf-4ef0-4ce1-8ba5-0dfcde82b9ef","urlToImage":null,"publishedAt":"2024-01-25T18:39:31Z","content":"Si vous cliquez sur « Tout accepter », nos partenaires (y compris 244 qui font partie du Cadre de transparence et de consentement dIAB) et nous utiliserons également des témoins et vos données person… [+982 chars]"},{
+            "source": {
+                "id": "engadget",
+                "name": "Engadget"
+            },
+            "author": "Devindra Hardawar",
+            "title": "Engadget Podcast: Our Apple Vision Pro hangover",
+            "description": "We still can’t stop thinking about the Apple Vision Pro. This week, Cherlynn and Devindra chat with CNET’s Scott Stein about our post-review impressions of Apple’s headset. We’ve got further thoughts about using it in public (maybe don’t), the isolation of be…",
+            "url": "https://www.engadget.com/engadget-podcast-our-apple-vision-pro-hangover-133021630.html",
+            "urlToImage": "https://s.yimg.com/ny/api/res/1.2/K7moVkrBu8qnX7AtPlzg_A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02OTY-/https://s.yimg.com/os/creatr-uploaded-images/2024-02/2275fd20-c6a7-11ee-9afd-4ffd0b651891",
+            "publishedAt": "2024-02-16T13:30:21Z",
+            "content": "We still cant stop thinking about the Apple Vision Pro. This week, Cherlynn and Devindra chat with CNETs Scott Stein about our post-review impressions of Apples headset. Weve got further thoughts abo… [+1490 chars]"
+        }]
+      }
+      console.log("hi")
+      let str = " ";
+      for (let item of response.articles){
+        str += `<div class="card my-4 mx-2" style="width: 18rem;">
+      <img src="${item.urlToImage}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">${item.title}</h5>
+        <p class="card-text">${item.description}</p>
+        <a href="${item.url}" target="_blank" class="btn btn-primary">Read Article</a>
+      </div></div>`;
+      }
+
+      document.querySelector(".content").innerHTML += str;
+
+    }
+    fetchNews(2)
+  </script>
+</body>
+</html>
